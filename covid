@@ -1,0 +1,19 @@
+covid
+library (spatstat)
+attach(covid) 
+
+covid_planar <- ppp(x=lon, y=LAT, c(-180,180), c(-90,90)
+plot (covid-planar)
+density_map <- density (covid_planar)
+plot(density_map)
+points (covid_plannar)
+cl <- colorRampalette (c("yellow', 'ofrange' "red')) (100)
+colorRampalette (('cyan''coral' 'chartreuse')) (3)
+plot (density _map, col=cl
+points (covid planar, pch=17, col="blue")
+Exercise- Change of colours
+cl <- colorRampPalette (c( <yellow
+
+
+
+librabry (rgdal)
