@@ -1,0 +1,607 @@
+# communtity ecology example with R
+# multivariate analysis
+
+
+
+
+raed.table
+# to upoad the R dat a
+load ("biomes_multivar.Rdfast")
+ls()
+multivar <- decorana(biomes)
+plot(multivar)
+plot (multivar)
+plot
+attach (biome_types)
+ordiellipse (multivar, type, col=c("black","red","green","blue"), kind="ehull", lwd=3)
+# to export data to an external pdf
+
+
+
+
+
+R version 4.2.1 (2022-06-23 ucrt) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> # Rcode for ggplot2 based graphs
+> library(ggplot2) # quotes are not to be used with library, quotes only to be  used when we move out of R, Use a text or color
+Need help getting started? Try the R Graphics Cookbook:
+https://r-graphics.org
+> library(ggplot2)
+> # ecological dataframe 
+> virus <- c(10, 30, 40, 50, 60, 80)
+> death <- c(100, 240, 310, 470, 580, 690)
+> virus
+[1] 10 30 40 50 60 80
+> death
+[1] 100 240 310 470 580 690
+> plot(virus,death)
+> plot(virus,death, pch=19, cex=2)
+> # how to make a table- table is called DATA FRAME
+> # the function to create data frame is "data.frame()"
+> data.frame(virus,death)
+  virus death
+1    10   100
+2    30   240
+3    40   310
+4    50   470
+5    60   580
+6    80   690
+> d <- data.frame(virus,death) # assigning dataframe to an object- d
+> summary(d) # to look at statistical fields
+     virus          death      
+ Min.   :10.0   Min.   :100.0  
+ 1st Qu.:32.5   1st Qu.:257.5  
+ Median :45.0   Median :390.0  
+ Mean   :45.0   Mean   :398.3  
+ 3rd Qu.:57.5   3rd Qu.:552.5  
+ Max.   :80.0   Max.   :690.0  
+> # the data we are using here is d
+> # now going to use ggplot(_, aes()) + geom_point 
+> # geom_point is used to explain the kind of geomatry you want to use for the plot
+> # aes- what are the variables to do the plot
+> # please keep the spacing uniform
+> ggplot(d, aes(x=virus, y=death)) + geom_point()
+> ggplot(d, aes(x=virus, y=death)) + geom_point(size=3, col="blue") # to increase size, we can put that function with geom
+> ggplot(d, aes(x=virus, y=death)) + geom_point(size=3, col="coral", pch=8)
+> ggplot(d, aes(x=virus, y=death)) + geom_line() # instead of geom points, we are using lines, the function is geom_line
+> # we can join different functions together
+> # we can use geom line and point together
+> ggplot(d, aes(x=virus, y=death)) + geom_point(size=3, col="coral", pch=8) + geom_line() # to change the color of line, geom(col=)
+> # we can use geom polygon as well
+> ggplot(d, aes(x=virus, y=death)) + geom_point(size=3, col="blue", pch=8) + geom_line(col="coral")
+> ggplot(d, aes(x=virus, y=death)) + geom_polygon()
+> 
+> 
+> install.packages("spatstat")
+Installing package into ‘C:/Users/parim/AppData/Local/R/win-library/4.2’
+(as ‘lib’ is unspecified)
+--- Please select a CRAN mirror for use in this session ---
+also installing the dependencies ‘spatstat.utils’, ‘spatstat.data’
+
+
+  There are binary versions available but the source versions are
+  later:
+               binary source needs_compilation
+spatstat.utils  2.3-1  3.0-1              TRUE
+spatstat.data   2.2-0  3.0-0             FALSE
+
+  Binaries will be installed
+trying URL 'https://cran.mirror.garr.it/CRAN/bin/windows/contrib/4.2/spatstat.utils_2.3-1.zip'
+Content type 'application/zip' length 365023 bytes (356 KB)
+downloaded 356 KB
+
+trying URL 'https://cran.mirror.garr.it/CRAN/bin/windows/contrib/4.2/spatstat_2.3-4.zip'
+Content type 'application/zip' length 3592462 bytes (3.4 MB)
+downloaded 3.4 MB
+
+package ‘spatstat.utils’ successfully unpacked and MD5 sums checked
+package ‘spatstat’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+        C:\Users\parim\AppData\Local\Temp\RtmpKuqeLR\downloaded_packages
+installing the source package ‘spatstat.data’
+
+trying URL 'https://cran.mirror.garr.it/CRAN/src/contrib/spatstat.data_3.0-0.tar.gz'
+Content type 'application/octet-stream' length 2935804 bytes (2.8 MB)
+downloaded 2.8 MB
+
+* installing *source* package 'spatstat.data' ...
+** package 'spatstat.data' successfully unpacked and MD5 sums checked
+** using staged installation
+** R
+** data
+*** moving datasets to lazyload DB
+** inst
+** byte-compile and prepare package for lazy loading
+Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) : 
+  namespace 'spatstat.utils' 2.3-1 is being loaded, but >= 3.0.0 is required
+Calls: <Anonymous> ... withCallingHandlers -> loadNamespace -> namespaceImport -> loadNamespace
+Execution halted
+ERROR: lazy loading failed for package 'spatstat.data'
+* removing 'C:/Users/parim/AppData/Local/R/win-library/4.2/spatstat.data'
+
+The downloaded source packages are in
+        ‘C:\Users\parim\AppData\Local\Temp\RtmpKuqeLR\downloaded_packages’
+Warning message:
+In install.packages("spatstat") :
+  installation of package ‘spatstat.data’ had non-zero exit status
+> 
+> 
+> # 21 OCTOBER 2022
+> # importing files
+> # we make a folder in our laptops, NOT on desktop- make it on C or D drive in order to have shortest path
+> # creating folder called Lab- download file from virtuale- save it in lab folder
+> # setwd()- set (something) wd- working directory
+> # Let's make our own data from outside R
+> # we will explain to R the path of our directory
+> setwd("C:/Lab/") # setwd for Windows # setwd("C:/lab/")
+> # if you get "+" in en error it means you have not closed the path yet
+> # the function to read the file is read.table("file", header= FALSE/TREU, sep="" )
+> # file- name of the file, here it is covid--
+> # header meaning cloumns having names
+> # sep meaning seperator- a symbols existing which seperates the colummns
+> read.table("covid_agg.csv")
+     V1                                 V2    V3           V4            V5
+1   cat                            country cases          lat           lon
+2     1                        Afghanistan    21  33.83890116   66.02652977
+3     2                            Albania    51  41.14595803   20.06917817
+4     3                            Algeria    49  28.16335741    2.63236595
+5     4                            Andorra    14  42.54858297    1.57568833
+6     5                Antigua and Barbuda     1    17.280137  -61.79112759
+7     6                          Argentina    56 -35.37667253  -65.16748474
+8     7                            Armenia    30  40.28641688   44.94793424
+9     8                          Australia   336 -25.73326023  134.49097595
+10    9                            Austria   959  47.59295768   14.13998831
+11   10                         Azerbaijan    21   40.2922195   47.53232681
+12   11                            Bahrain   221  26.01947392   50.56248915
+13   12                         Bangladesh     8   23.8330072   90.27092576
+14   13                            Belarus    36  53.54021951   28.04696448
+15   14                            Belgium  1085  50.64295176    4.66434841
+16   15                             Bhutan     1  27.41546082   90.42943275
+17   16   Bolivia (Plurinational State of)    11 -16.71510989  -64.67054847
+18   17             Bosnia and Herzegovina    21  44.16643966   17.78861095
+19   18                             Brazil   200  -10.7722828  -53.08875436
+20   19                  Brunei Darussalam    50   4.52147838  114.76132088
+21   20                           Bulgaria    62  42.76032141   25.23475756
+22   21                       Burkina Faso    15  12.27793715   -1.73983521
+23   22                           Cambodia    12  12.71402994  104.92123962
+24   23                           Cameroon     5   5.68580436    12.7432535
+25   24                             Canada   304   61.3930667  -98.26094698
+26   25                     Cayman Islands     1    19.431525  -80.82909683
+27   26           Central African Republic     1   6.57145342   20.48278081
+28   27                              Chile    75 -37.86811922  -71.38009385
+29   28                              China 81116  36.51870146   103.8934731
+30   29                           Colombia    34   3.90037401  -73.07576335
+31   30                              Congo     1  -0.84006603   15.22427459
+32   31                         Costa Rica    35   9.97052135  -84.18903867
+33   32                      Côte d’Ivoire     3    7.6317253   -5.55549992
+34   33                            Croatia    49  45.04363696   16.40934249
+35   34                               Cuba     4  21.62142096   -79.0381998
+36   35                            Curacao     2  12.18779752  -68.96749055
+37   36                             Cyprus    33  35.04299175   33.21863708
+38   37                            Czechia   298  49.74303614   15.33833995
+39   38   Democratic Republic of the Congo     2  -2.87622576   23.65431545
+40   39                            Denmark   898   55.9623328   10.05082082
+41   40                 Dominican Republic     5  18.89309386  -70.48543447
+42   41                            Ecuador    37  -1.42528337  -78.78096177
+43   42                              Egypt   126   26.5565646   29.78210708
+44   43                  Equatorial Guinea     1    1.7101686   10.33849628
+45   44                            Estonia   205  58.67400787    25.5257709
+46   45                           Eswatini     1 -26.56211674    31.4971888
+47   46                           Ethiopia     4   8.62613927   39.61601894
+48   47                      Faroe Islands    11    62.050314   -6.86363602
+49   48                            Finland   272  64.49433129    26.2588423
+50   49                             France  5380  46.56487403    2.55042646
+51   50                      French Guiana     7    3.9243882  -53.24126696
+52   51                   French Polynesia     3      -17.532      -149.568
+53   52                              Gabon     1  -0.59067797   11.79715762
+54   53                            Georgia    33  42.17632583   43.51757115
+55   54                            Germany  4838  51.11015396   10.39232967
+56   55                              Ghana     2   7.95964382   -1.20704619
+57   56                          Gibraltar     1   36.1381932   -5.34488893
+58   57                             Greece   331  39.04452874    22.9879848
+59   58                         Guadeloupe     6  16.20126357  -61.53039242
+60   59                          Guatemala     1   15.7023026   -90.3569493
+61   60                           Guernsey     1   49.4590463   -2.57582282
+62   61                             Guinea     1  10.43854094  -10.94182542
+63   62                             Guyana     4   4.79237827  -58.97416349
+64   63                           Holy See     1  41.89324195   12.48571114
+65   64                           Honduras     2  14.81934813  -86.61965899
+66   65                            Hungary    39  47.16647906   19.41342813
+67   66                            Iceland   161  64.99764998   -18.6057026
+68   67                              India   114  22.88132057    79.6188183
+69   68                          Indonesia   134  -2.22903453  117.31101692
+70   69         Iran (Islamic Republic of) 14991  32.56479959   54.30141376
+71   70                               Iraq   124  33.04800654   43.77224552
+72   71                            Ireland   169  53.17708682    -8.1515763
+73   72                             Israel   250  31.35805652   34.96598271
+74   73                              Italy 27980  42.79119167   12.07165559
+75   74                            Jamaica    10  18.15133064  -77.31975081
+76   75                              Japan   814  37.53982621  137.97387026
+77   76                             Jersey     2  49.21949816   -2.12891773
+78   77                             Jordan     6  31.25338179   36.78694114
+79   78                         Kazakhstan     6   48.1600427   67.30130018
+80   79                              Kenya     3   0.52978018   37.85786442
+81   80                             Kuwait   123  29.34250906   47.59355128
+82   81                             Latvia    34  56.85766939   24.92915332
+83   82                            Lebanon    99  33.92039304   35.88806123
+84   83                      Liechtenstein     7  47.15259548    9.55526493
+85   84                          Lithuania    17  55.33585013   23.89683075
+86   85                         Luxembourg    81  49.77096396    6.08754416
+87   86                           Malaysia   553   3.79382045   109.7115743
+88   87                           Maldives    13   3.37481932   73.25178478
+89   88                              Malta    30  35.92036651   14.40457358
+90   89                         Martinique    15  14.65277419  -61.02147382
+91   90                         Mauritania     1  20.25990361  -10.33226041
+92   91                            Mayotte     1 -12.81835006   45.13926174
+93   92                             Mexico    53  23.95092841 -102.53499093
+94   93                             Monaco     9  43.75034615    7.41201715
+95   94                           Mongolia     1  46.83520872  103.08303108
+96   95                            Morocco    29  31.88355697   -6.31780295
+97   96                            Namibia     2 -22.13329329   17.21845028
+98   97                              Nepal     1  28.25300785   83.93851707
+99   98                        Netherlands  1413   52.2535763    5.60099776
+100  99                        New Zealand     6 -41.83710689  171.60397128
+101 100                            Nigeria     3   9.59360399    8.10527726
+102 101                    North Macedonia    19  41.59922075    21.6991485
+103 102                             Norway  1169  64.44784887   14.07508911
+104 103     occupied Palestinian territory    39  31.91395114   35.20376878
+105 104                               Oman    22  20.60208368   56.10981747
+106 105                           Pakistan    53  29.96678898   69.38581881
+107 106                             Panama    43   8.50544318  -80.10906884
+108 107                           Paraguay     8 -23.23612887  -58.39095178
+109 108                               Peru    71  -9.16377133  -74.37540668
+110 109                        Philippines   142  11.74740203  122.87360743
+111 110                             Poland   150  52.12472405   19.40092017
+112 111                           Portugal   245  39.60269511   -8.46736074
+113 112                        Puerto Rico     3  18.22093074  -66.46612748
+114 113                              Qatar   401  25.31580997   51.19120083
+115 114                  Republic of Korea  8236  36.36770228  127.82934392
+116 115                Republic of Moldova    23  47.19332561   28.47434317
+117 116                            Réunion     9 -21.12162946   55.53821274
+118 117                            Romania   158  45.84360558   24.96990758
+119 118                 Russian Federation    93   61.9882456   96.68944215
+120 119                             Rwanda     5  -1.99796798   29.91720553
+121 120                   Saint Barthelemy     3   17.9057614  -62.83353803
+122 121                        Saint Lucia     2  13.89811518  -60.96869084
+123 122                       Saint Martin     2   18.0876049  -63.06457229
+124 123   Saint Vincent and the Grenadines     1  13.20205468  -61.20753009
+125 124                         San Marino   102  43.94191474   12.46035762
+126 125                       Saudi Arabia   133  24.08088192   44.57044965
+127 126                            Senegal    26  14.36697954  -14.46817708
+128 127                             Serbia    62  44.03387222   20.81133086
+129 128                         Seychelles     4  -6.39906405   52.23005901
+130 129                          Singapore   243   1.35118038  103.80765359
+131 130                           Slovakia    72   48.7073588   19.49145028
+132 131                           Slovenia   253  46.12355026   14.82707444
+133 132                            Somalia     1    6.0637135   45.86255927
+134 133                       South Africa    51 -28.99321352   25.08871199
+135 134                              Spain  9191  40.22749596   -3.64931118
+136 135                          Sri Lanka    19   7.61236243   80.70426262
+137 136                              Sudan     1  16.04883821   30.00438135
+138 137                           Suriname     1   4.12671321  -55.91158124
+139 138                             Sweden  1059  62.78774226   16.74115526
+140 139                        Switzerland  2200   46.8025828    8.23458738
+141 140                           Thailand   147  15.11989876  101.01490782
+142 141                 The United Kingdom  1547   54.1601792   -2.90049476
+143 142                               Togo     1   8.53491037    0.97584596
+144 143                Trinidad and Tobago     2  10.46836429  -61.25263722
+145 144                            Tunisia    20  34.11124917    9.56156142
+146 145                             Turkey    12  39.06061856   35.17921811
+147 146                            Ukraine     5  49.01609429   31.38784552
+148 147               United Arab Emirates    98  23.91267254   54.33219878
+149 148           United States of America  1714   45.6954816 -112.49356447
+150 149                            Uruguay     4 -32.79956992  -56.01217362
+151 150                         Uzbekistan     4  41.75041661   63.16950578
+152 151 Venezuela (Bolivarian Republic of)    17   7.12493711  -66.16621515
+153 152                           Viet Nam    57  16.65160342  106.30403531
+> covid <- read.table("covid_agg.csv", header= TRUE) # if we don't put headers, R cannot read the headings and puts variables against them
+> head(covid)
+  cat             country cases       lat        lon
+1   1         Afghanistan    21  33.83890  66.026530
+2   2             Albania    51  41.14596  20.069178
+3   3             Algeria    49  28.16336   2.632366
+4   4             Andorra    14  42.54858   1.575688
+5   5 Antigua and Barbuda     1  17.28014 -61.791128
+6   6           Argentina    56 -35.37667 -65.167485
+> covid <- read.table("covid_agg.csv", header= T) # True can be repalced with "T" and header with "head"
+> summary(covid)
+      cat           country              cases              lat         
+ Min.   :  1.00   Length:152         Min.   :    1.0   Min.   :-41.837  
+ 1st Qu.: 38.75   Class :character   1st Qu.:    4.0   1st Qu.:  7.878  
+ Median : 76.50   Mode  :character   Median :   24.5   Median : 25.668  
+ Mean   : 76.50                      Mean   : 1135.7   Mean   : 24.027  
+ 3rd Qu.:114.25                      3rd Qu.:  133.2   3rd Qu.: 43.965  
+ Max.   :152.00                      Max.   :81116.0   Max.   : 64.998  
+      lon         
+ Min.   :-149.57  
+ 1st Qu.: -10.48  
+ Median :  15.28  
+ Mean   :  11.55  
+ 3rd Qu.:  43.97  
+ Max.   : 171.60  
+> #now making a plot of the points
+> #ggplot(data="", aes=x and y)
+> ggplot(covid, aes(x=lon, y=lat)) + geom_point(col="blue", size=3)
+> ggplot(covid, aes(x=lon, y=lat, size=cases)) + geom_point(col="red") # can change the size of variables to "cases"  as it is numerical and we are not setting the size
+> ggplot(covid, aes(x=lon, y=lat, size=cases)) + geom_point(col="blue", pch=8)
+> librabry (rgdal)
+Error in librabry(rgdal) : could not find function "librabry"
+> intall.packages (rgdal)
+Error in intall.packages(rgdal) : 
+  could not find function "intall.packages"
+> intall.packages ("rgdal")
+Error in intall.packages("rgdal") : 
+  could not find function "intall.packages"
+> head(covid)
+  cat             country cases       lat        lon
+1   1         Afghanistan    21  33.83890  66.026530
+2   2             Albania    51  41.14596  20.069178
+3   3             Algeria    49  28.16336   2.632366
+4   4             Andorra    14  42.54858   1.575688
+5   5 Antigua and Barbuda     1  17.28014 -61.791128
+6   6           Argentina    56 -35.37667 -65.167485
+> > attach (covid)
+Error: unexpected '>' in ">"
+> > marks (covid_planar) <- cases
+Error: unexpected '>' in ">"
+> attach (covid)
+> marks 9covid_planar) <-cases
+Error: unexpected numeric constant in "marks 9"
+> cases_map <- Smooth (covid_planar)
+Error in Smooth(covid_planar) : could not find function "Smooth"
+> intall.packages("vegan")
+Error in intall.packages("vegan") : 
+  could not find function "intall.packages"
+> install.packages("vegan")
+Installing package into ‘C:/Users/parim/AppData/Local/R/win-library/4.2’
+(as ‘lib’ is unspecified)
+also installing the dependency ‘permute’
+
+trying URL 'https://cran.mirror.garr.it/CRAN/bin/windows/contrib/4.2/permute_0.9-7.zip'
+Content type 'application/zip' length 225588 bytes (220 KB)
+downloaded 220 KB
+
+trying URL 'https://cran.mirror.garr.it/CRAN/bin/windows/contrib/4.2/vegan_2.6-4.zip'
+Content type 'application/zip' length 3269657 bytes (3.1 MB)
+downloaded 3.1 MB
+
+package ‘permute’ successfully unpacked and MD5 sums checked
+package ‘vegan’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+        C:\Users\parim\AppData\Local\Temp\RtmpKuqeLR\downloaded_packages
+> library(vegan)
+Loading required package: permute
+Loading required package: lattice
+This is vegan 2.6-4
+Warning messages:
+1: package ‘vegan’ was built under R version 4.2.2 
+2: package ‘permute’ was built under R version 4.2.2 
+> setwd for Windows
+Error: unexpected 'for' in "setwd for"
+> setwd("C:/lab/")
+> load("biomes_multivar.RData")
+> ls()
+[1] "biomes"       "biomes_types" "cl"           "covid"        "d"           
+[6] "death"        "snow2000"     "virus"       
+> biomes
+   chestnut beech giant_orb maple_acer rafflesia lichens brown_bear oak
+1         1     0         0          0         0       0          0   0
+2         3     0         0          2         0       3          4   0
+3         0     4         0          7         0       2          0   0
+4         0     8         0          2         0       2          3   0
+5         2     0         0          0         4       2          2   0
+6         2     0         0          0         3       0          0   0
+7         2     0         0          0         2       0          2   0
+8         0     4         0          5         0       0          0   0
+9         0     3         0          3         0       0          0   0
+10        4     0         0          0         4       2          4   0
+11        0     0         0          0         0       0          0   0
+12        0     4         0          8         0       0          0   0
+13        0     5         0          5         0       0          0   1
+14        0     4         0          0         0       0          0   0
+15        0     4         0          0         0       0          0   0
+16        0     7         0          4         0       0          0   0
+17        2     0         2          0         4       0          0   0
+18        0     0         0          0         0       2          0   0
+19        0     0         3          0         4       0          0   0
+20        0     5         0          0         0       0          0   0
+   lianas bufo fox lynx red_colubus tree_fern mosses pandinus robin_bird
+1       0    0   0    4           0         0      0        0          7
+2       0    0   0    4           0         0      0        0          5
+3       0    0   0    4           0         0      0        0          6
+4       2    0   0    4           0         0      0        0          5
+5       0    0   0    4           0         0      0        0          2
+6       0    0   0    0           0         0      0        0          6
+7       0    0   0    0           0         0      0        2          6
+8       0    0   4    0           0         0      4        0          4
+9       0    0   0    6           0         0      4        4          2
+10      0    0   0    0           0         0      0        0          6
+11      0    0   0    0           0         2      0        0          7
+12      0    0   0    0           0         0      0        4          0
+13      0    0   0    0           0         0      0        3          0
+14      0    2   4    0           0         0      0        0          0
+15      0    2   5    0           0         0      3        0          0
+16      0    0   8    0           0         0      3        0          0
+17      0    0   0    0           0         2      0        0          0
+18      0    0   0    0           0         0      0        0          2
+19      0    0   0    0           2         5      0        0          0
+20      0    0   4    0           0         0      4        0          0
+   fir_abies deer viper alnus rein_deer plerotus orangutan tiger wolf
+1          0    4     2     0         0        0         0     0    0
+2          0    4     7     0         0        0         0     5    0
+3          0    5     6     0         0        0         0     2    0
+4          0    4     5     0         0        5         0     2    0
+5          5    2     6     0         5        0         0     3    2
+6          5    3     4     0         6        0         0     3    5
+7          5    4     5     0         3        0         0     3    2
+8          0    4     4     2         0        2         0     3    0
+9          0    4     5     0         2        2         0     2    0
+10         3    4     4     0         0        0         0     3    0
+11         3    4     0     0         0        2         0     5    0
+12         0    0     4     0         2        4         0     2    0
+13         0    2     9     2         0        2         0     2    0
+14         0    0     0     2         0        0         0     2    0
+15         0    0     0     2         0        0         0     2    0
+16         0    0     2     2         0        0         0     0    0
+17         2    1     0     0         0        0         0     2    0
+18         3    3     0     0         0        0         3     5    0
+19         0    0     0     0         0        3         3     6    0
+20         0    0     0     4         0        0         5     2    0
+   banana_tree dinoponera python squirrel
+1            0          0      0        0
+2            5          0      0        0
+3            2          0      2        0
+4            1          0      2        0
+5            2          0      2        0
+6            5          0      6        0
+7            2          0      2        0
+8            2          0      2        0
+9            3          0      2        0
+10           6          1      2        0
+11           3          2      4        0
+12           3          0      4        0
+13           2          0      0        0
+14           6          0      0        4
+15           1          0      4        0
+16           0          0      4        3
+17           0          0      0        0
+18           2          1      6        0
+19           2          0      3        0
+20           0          0      4        3
+> head(biomes)
+  chestnut beech giant_orb maple_acer rafflesia lichens brown_bear oak lianas
+1        1     0         0          0         0       0          0   0      0
+2        3     0         0          2         0       3          4   0      0
+3        0     4         0          7         0       2          0   0      0
+4        0     8         0          2         0       2          3   0      2
+5        2     0         0          0         4       2          2   0      0
+6        2     0         0          0         3       0          0   0      0
+  bufo fox lynx red_colubus tree_fern mosses pandinus robin_bird fir_abies
+1    0   0    4           0         0      0        0          7         0
+2    0   0    4           0         0      0        0          5         0
+3    0   0    4           0         0      0        0          6         0
+4    0   0    4           0         0      0        0          5         0
+5    0   0    4           0         0      0        0          2         5
+6    0   0    0           0         0      0        0          6         5
+  deer viper alnus rein_deer plerotus orangutan tiger wolf banana_tree
+1    4     2     0         0        0         0     0    0           0
+2    4     7     0         0        0         0     5    0           5
+3    5     6     0         0        0         0     2    0           2
+4    4     5     0         0        5         0     2    0           1
+5    2     6     0         5        0         0     3    2           2
+6    3     4     0         6        0         0     3    5           5
+  dinoponera python squirrel
+1          0      0        0
+2          0      0        0
+3          0      2        0
+4          0      2        0
+5          0      2        0
+6          0      6        0
+> ls()
+[1] "biomes"       "biomes_types" "cl"           "covid"        "d"           
+[6] "death"        "snow2000"     "virus"       
+> biomws_types
+Error: object 'biomws_types' not found
+> biomes_types
+   A1 tcode      type
+1   1     1 temperate
+2   2     1       tun
+3   3     2 temperate
+4   4     2 temperate
+5   5     1       con
+6   6     1       con
+7   7     1       con
+8   8     5       con
+9   9     4       con
+10 10     2       tun
+11 11     1       tun
+12 12     4 temperate
+13 13     5 temperate
+14 14     5  tropical
+15 15     5  tropical
+16 16     5 temperate
+17 17     2  tropical
+18 18     1  tropical
+19 19     5  tropical
+20 20     5  tropical
+> multivar <- decorana(biomes
++ multivar <- decorana(biomes)
+Error: unexpected symbol in:
+"multivar <- decorana(biomes
+multivar"
+> multivar <- decorana(biomes)
+> multivar
+
+Call:
+decorana(veg = biomes) 
+
+Detrended correspondence analysis with 26 segments.
+Rescaling of axes with 4 iterations.
+Total inertia (scaled Chi-square): 2.1153 
+
+                       DCA1   DCA2    DCA3    DCA4
+Eigenvalues          0.5117 0.3036 0.12125 0.14267
+Additive Eigenvalues 0.5117 0.2985 0.12242 0.12984
+Decorana values      0.5360 0.2869 0.08136 0.04814
+Axis lengths         3.7004 3.1166 1.30055 1.47888
+
+> plot(multivar)
+> plot
+function (x, y, ...) 
+UseMethod("plot")
+<bytecode: 0x00000154515e5e68>
+<environment: namespace:base>
+> plot (multivar)
+> attach(biomes_types)
+> ordiellipse (multivar, type, col=c("black","red","green","blue")) kind="ehull", lwd=3
+Error: unexpected symbol in "ordiellipse (multivar, type, col=c("black","red","green","blue")) kind"
+> ordiellipse (multivar, type, col=c("black","red","green","blue")) kind="ehull", lwd=3
+Error: unexpected symbol in "ordiellipse (multivar, type, col=c("black","red","green","blue")) kind"
+> ordiellipse(multivar, type, col=c("black","red","green","blue")) kind="ehull", lwd=3
+Error: unexpected symbol in "ordiellipse(multivar, type, col=c("black","red","green","blue")) kind"
+> ordiellipse(multivar, type, col=c("black","red","green","blue")) kind="ehull", lwd=3
+Error: unexpected symbol in "ordiellipse(multivar, type, col=c("black","red","green","blue")) kind"
+> ordiellipse (multivar, type, col=c("black","red","green","blue")) kind="ehull", lwd=3
+Error: unexpected symbol in "ordiellipse (multivar, type, col=c("black","red","green","blue")) kind"
+> ordiellipse (multivar, type, col=c("black","red","green","blue"), kind="ehull", lwd=3)
+> ordiespider(multivar), type, col=c("black","red","green","blue"), label=T)
+Error: unexpected ',' in "ordiespider(multivar),"
+> ordiespider (multivar), type, col=c("black","red","green","blue"), label=T)
+Error: unexpected ',' in "ordiespider (multivar),"
+> ordiespider (multivar, type, col=c("black","red","green","blue"), label=T)
+Error in ordiespider(multivar, type, col = c("black", "red", "green",  : 
+  could not find function "ordiespider"
+> ordiespider(multivar, type, col=c("black","red","green","blue"), label=T)
+Error in ordiespider(multivar, type, col = c("black", "red", "green",  : 
+  could not find function "ordiespider"
+> ordispider(multivar, type, col=c("black","red","green","blue"), label=T)
+> pdf("hello.pdf")
+> plot(multivar)
+>  ordiellipse (multivar, type, col=c("black","red","green","blue"), kind="ehull", lwd=3)
+> ordispider(multivar, type, col=c("black","red","green","blue"), label=T)
+> dev.off()
+windows 
+      2 
+> pdf("tweet.pdf")
+> plot(multivar)
+> dev.off()
+windows 
+      2 
