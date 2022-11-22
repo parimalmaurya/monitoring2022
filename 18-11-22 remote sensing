@@ -1,0 +1,247 @@
+# make a multiframe with 2 rows and 1 column 
+#  plotting the 1988 and the 2011 images
+'vctrs' 0.4.2 is already loaded, but >= 0.5.0 is required
+Calls: <Anonymous> ... namespaceImportFrom -> asNamespace -> loadNamespace
+Execution halted
+ERROR: lazy loading failed for package 'recipes'
+* removing 'C:/Users/parim/AppData/Local/R/win-library/4.2/recipes'
+
+The downloaded source packages are in
+        ‘C:\Users\parim\AppData\Local\Temp\RtmpKuqeLR\downloaded_packages’
+Warning messages:
+1: In file.copy(savedcopy, lib, recursive = TRUE) :
+  problem copying C:\Users\parim\AppData\Local\R\win-library\4.2\00LOCK\vctrs\libs\x64\vctrs.dll to C:\Users\parim\AppData\Local\R\win-library\4.2\vctrs\libs\x64\vctrs.dll: Permission denied
+2: In install.packages("RStoolbox") :
+  installation of package ‘recipes’ had non-zero exit status
+> setwd("C;/lab/")
+Error in setwd("C;/lab/") : cannot change working directory
+> setwd("C:/lab/")
+> brick("p223r63_2011_masked.grd")
+Error in file(x, "rb") : cannot open the connection
+In addition: Warning message:
+In file(x, "rb") :
+  cannot open file 'p223r63_2011_masked.grd': No such file or directory
+> brick("p224r63_2011_masked.grd)
++ > p223r63_2011
++ 
++ 
++ 
++ 
++ 
++ > brick("p224r63_2011_masked.grd)
+Error: unexpected symbol in:
+"
+> brick("p224r63_2011_masked.grd"
+> > brick("p224r63_2011_masked.grd)
+Error: unexpected '>' in ">"
+> brick("p224r63_2011_masked.grd")
+class      : RasterBrick 
+dimensions : 1499, 2967, 4447533, 7  (nrow, ncol, ncell, nlayers)
+resolution : 30, 30  (x, y)
+extent     : 579765, 668775, -522705, -477735  (xmin, xmax, ymin, ymax)
+crs        : +proj=utm +zone=22 +datum=WGS84 +units=m +no_defs 
+source     : p224r63_2011_masked.grd 
+names      :       B1_sre,       B2_sre,       B3_sre,       B4_sre,       B5_sre,        B6_bt,       B7_sre 
+min values : 0.000000e+00, 0.000000e+00, 0.000000e+00, 1.196277e-02, 4.116526e-03, 2.951000e+02, 0.000000e+00 
+max values :    0.1249041,    0.2563655,    0.2591587,    0.5592193,    0.4894984,  305.2000000,    0.3692634 
+
+> p224r63_2011
+Error: object 'p224r63_2011' not found
+> p224r63_2011
+Error: object 'p224r63_2011' not found
+> plot("p224r63_2011")
+Error in plot.window(...) : need finite 'ylim' values
+In addition: Warning messages:
+1: In xy.coords(x, y, xlabel, ylabel, log) : NAs introduced by coercion
+2: In min(x) : no non-missing arguments to min; returning Inf
+3: In max(x) : no non-missing arguments to max; returning -Inf
+> plot(p224r63_2011)
+Error in h(simpleError(msg, call)) : 
+  error in evaluating the argument 'x' in selecting a method for function 'plot': object 'p224r63_2011' not found
+> dev.off()
+null device 
+          1 
+> plot(p224r63_2011)
+Error in h(simpleError(msg, call)) : 
+  error in evaluating the argument 'x' in selecting a method for function 'plot': object 'p224r63_2011' not found
+> plot(p224r63_2011_masked.grd)
+Error in h(simpleError(msg, call)) : 
+  error in evaluating the argument 'x' in selecting a method for function 'plot': object 'p224r63_2011_masked.grd' not found
+> brick("p224r63_2011_masked.grd")
+class      : RasterBrick 
+dimensions : 1499, 2967, 4447533, 7  (nrow, ncol, ncell, nlayers)
+resolution : 30, 30  (x, y)
+extent     : 579765, 668775, -522705, -477735  (xmin, xmax, ymin, ymax)
+crs        : +proj=utm +zone=22 +datum=WGS84 +units=m +no_defs 
+source     : p224r63_2011_masked.grd 
+names      :       B1_sre,       B2_sre,       B3_sre,       B4_sre,       B5_sre,        B6_bt,       B7_sre 
+min values : 0.000000e+00, 0.000000e+00, 0.000000e+00, 1.196277e-02, 4.116526e-03, 2.951000e+02, 0.000000e+00 
+max values :    0.1249041,    0.2563655,    0.2591587,    0.5592193,    0.4894984,  305.2000000,    0.3692634 
+
+> p224r63_2011
+Error: object 'p224r63_2011' not found
+> dev.off()
+Error in dev.off() : cannot shut down device 1 (the null device)
+> <- brick("p224r63_2011_masked.grd")
+Error: unexpected assignment in "<-"
+> 
+> p224r63_2011
+Error: object 'p224r63_2011' not found
+> 
+> plot(p224r63_2011)
+Error in h(simpleError(msg, call)) : 
+  error in evaluating the argument 'x' in selecting a method for function 'plot': object 'p224r63_2011' not found
+> dev.off()
+Error in dev.off() : cannot shut down device 1 (the null device)
+> setwd("C:\Lab") 
+Error: '\L' is an unrecognized escape in character string starting ""C:\L"
+> setwd("C:\Lab/") 
+Error: '\L' is an unrecognized escape in character string starting ""C:\L"
+> setwd("C:\lab/") 
+Error: '\l' is an unrecognized escape in character string starting ""C:\l"
+> setwd("C:\lab\") 
+Error: '\l' is an unrecognized escape in character string starting ""C:\l"
+> setwd("C:/lab/") 
+> brick("p224r63_2011_masked.grd")
+class      : RasterBrick 
+dimensions : 1499, 2967, 4447533, 7  (nrow, ncol, ncell, nlayers)
+resolution : 30, 30  (x, y)
+extent     : 579765, 668775, -522705, -477735  (xmin, xmax, ymin, ymax)
+crs        : +proj=utm +zone=22 +datum=WGS84 +units=m +no_defs 
+source     : p224r63_2011_masked.grd 
+names      :       B1_sre,       B2_sre,       B3_sre,       B4_sre,       B5_sre,        B6_bt,       B7_sre 
+min values : 0.000000e+00, 0.000000e+00, 0.000000e+00, 1.196277e-02, 4.116526e-03, 2.951000e+02, 0.000000e+00 
+max values :    0.1249041,    0.2563655,    0.2591587,    0.5592193,    0.4894984,  305.2000000,    0.3692634 
+
+>  p224r63_2011 <- brick("p224r63_2011_masked.grd")
+> plot(p224r63_2011)
+> 
+> cl <- colorRampPalette(c('black','grey','light grey'))(100) # 
+> plot(p224r63_2011, col=cl)
+> 
+> p224r63_2011
+class      : RasterBrick 
+dimensions : 1499, 2967, 4447533, 7  (nrow, ncol, ncell, nlayers)
+resolution : 30, 30  (x, y)
+extent     : 579765, 668775, -522705, -477735  (xmin, xmax, ymin, ymax)
+crs        : +proj=utm +zone=22 +datum=WGS84 +units=m +no_defs 
+source     : p224r63_2011_masked.grd 
+names      :       B1_sre,       B2_sre,       B3_sre,       B4_sre,       B5_sre,        B6_bt,       B7_sre 
+min values : 0.000000e+00, 0.000000e+00, 0.000000e+00, 1.196277e-02, 4.116526e-03, 2.951000e+02, 0.000000e+00 
+max values :    0.1249041,    0.2563655,    0.2591587,    0.5592193,    0.4894984,  305.2000000,    0.3692634 
+
+> plot(p224r63_2011$B1_sre, col=cl)
+> plot(p224r63_2011[[1]], col=cl)
+> clb <- colorRampPalette(c('blue','dark blue','light blue'))(100) #
+> plot(p224r63_2011, col=cl)plot(p224r63_2011[[1]], col=cl)
+Error: unexpected symbol in "plot(p224r63_2011, col=cl)plot"
+> plot(p224r63_2011[[1]], col=clb)
+> par(mfrow=c(1,2))
+> 
+
+> plot(p224r63_2011[[1]], col=cl)
+> plot(p224r63_2011[[2]], col=cl)
+> par(mfrow=c(1,2,3,4))
+Error in par(mfrow = c(1, 2, 3, 4)) : 
+  graphical parameter "mfrow" has the wrong length
+> par(mfrow=c(1,2x3,4))
+Error: unexpected symbol in "par(mfrow=c(1,2x3"
+>   plot(p224r63_2011[[3]], col=cl)
+> par(mfrow=c(2,2))
+> plot(p224r63_2011[[1]], col=cl)
+> plot(p224r63_2011[[2]], col=cl)
+> plot(p224r63_2011[[3]], col=cl)
+> plot(p224r63_2011[[4]], col=cl)
+> setwd("C:/lab/")
+> p224r63_1988 <- brick("p224r63_1988_masked.grd")
+Error in file(x, "rb") : cannot open the connection
+In addition: Warning message:
+In file(x, "rb") :
+  cannot open file 'p224r63_1988_masked.grd': No such file or directory
+> p224r63_2011 <- brick("p224r63_2011_masked.grd")
+> 
+
+> p224r63_1988 <- brick("p224r63_1988_masked.grd")
+Error in file(x, "rb") : cannot open the connection
+In addition: Warning message:
+In file(x, "rb") :
+  cannot open file 'p224r63_1988_masked.grd': No such file or directory
+> p224r63_1988 <- brick("p224r63_1988_masked.grd")
+> p224r63_2011 <- brick("p224r63_2011_masked.grd")
+> p224r63_1988
+class      : RasterBrick 
+dimensions : 1499, 2967, 4447533, 7  (nrow, ncol, ncell, nlayers)
+resolution : 30, 30  (x, y)
+extent     : 579765, 668775, -522705, -477735  (xmin, xmax, ymin, ymax)
+crs        : +proj=utm +zone=22 +datum=WGS84 +units=m +no_defs 
+source     : p224r63_1988_masked.grd 
+names      :       B1_sre,       B2_sre,       B3_sre,       B4_sre,       B5_sre,        B6_bt,       B7_sre 
+min values : 4.070954e-03, 8.173777e-03, 4.615846e-03, 1.300000e-02, 4.567942e-03, 2.947000e+02, 0.000000e+00 
+max values :   0.08496003,   0.17020000,   0.21908860,   0.54999932,   0.45184137, 305.20000000,   0.49681378 
+
+> p224r63_2011 
+class      : RasterBrick 
+dimensions : 1499, 2967, 4447533, 7  (nrow, ncol, ncell, nlayers)
+resolution : 30, 30  (x, y)
+extent     : 579765, 668775, -522705, -477735  (xmin, xmax, ymin, ymax)
+crs        : +proj=utm +zone=22 +datum=WGS84 +units=m +no_defs 
+source     : p224r63_2011_masked.grd 
+names      :       B1_sre,       B2_sre,       B3_sre,       B4_sre,       B5_sre,        B6_bt,       B7_sre 
+min values : 0.000000e+00, 0.000000e+00, 0.000000e+00, 1.196277e-02, 4.116526e-03, 2.951000e+02, 0.000000e+00 
+max values :    0.1249041,    0.2563655,    0.2591587,    0.5592193,    0.4894984,  305.2000000,    0.3692634 
+
+> plotRGB(p22463_1988, r=3, g=2, b=1, stretch= "lin")
+Error in h(simpleError(msg, call)) : 
+  error in evaluating the argument 'x' in selecting a method for function 'plotRGB': object 'p22463_1988' not found
+> dev.off()
+null device 
+          1 
+> plotRGB(p224r63_1988, r=3, g=2, b=1, stretch="Lin")
+> plotRGB(p224r63_1988, r=4, g=3, b=2, stretch="Lin")
+> plotRGB(p224r63_1988, r=3, g=2, b=4, stretch="Lin")
+> 
+> plotRGB(p224r63_1988, r=4, g=3, b=2, stretch="Lin")
+>  plot(p224r63_2011[[1]], col=cl)
+> > plot(p224r63_2011[[2]], col=cl)
+Error: unexpected '>' in ">"
+>  plot(p224r63_2011[[2]], col=cl)
+> par(mfrow=c(2,1))
+> plotRGB(p224r63_1988, r=3, g=2, b=4, stretch="Lin")
+> plotRGB(p224r63_2011, r=3, g=2, b=1, stretch="Lin")
+> plotRGB(p224r63_2011, r=3, g=2, b=4, stretch="Lin")
+> plotRGB(p224r63_1988, r=3, g=2, b=4, stretch="Lin")
+> #calcultaing the diffrence between images
+> #multitemporal analysis
+> 
+
+> fifnir <- p224r63_1988[[4]] - p224r63_2011[[4]]
+> difnir <- p224r63_1988[[4]] - p224r63_2011[[4]]
+> cl <- colorRampalette(c('green','blue','yellow'))(100) #
+Error in colorRampalette(c("green", "blue", "yellow")) : 
+  could not find function "colorRampalette"
+> cl <- colorRampPalette(c('green','blue','yellow'))(100)# 
+> dev.off()
+null device 
+          1 
+> cl <- colorRampPalette(c('green','blue','yellow'))(100)# 
+> plot(difnir, col=cl)
+> cl <- colorRaqmpPalette(c('orange",'yellow','red')) (100)#
+Error: unexpected symbol in "cl <- colorRaqmpPalette(c('orange",'yellow"
+> cl <- colorRampPalette(c('orange",'yellow','red')) (100)#
+Error: unexpected symbol in "cl <- colorRampPalette(c('orange",'yellow"
+> ######## Difference Vegetation Index
+> 
+> ### Recent DVI (2011)
+> dvi2011 <- p224r63_2011[[4]] - p224r63_2011[[3]]
+> plot (dvi2011,col=cl)
+> dvi1988 <- p224r63_2011[[4]] - p224r63_2011[[3]]
+> plot (dvi1988,col=cl)
+> dvi1988 <- p224r63_1988[[4]] - p224r63_1988[[3]]
+> plot (dvi1988,col=cl)
+> difdvi <- dvi1988 - dvi2011
+> cl <- colorRampPalette(c('blue','white','red'))(100)#
+> plot(difdvii,col=cl)
+Error in h(simpleError(msg, call)) : 
+  error in evaluating the argument 'x' in selecting a method for function 'plot': object 'difdvii' not found
+> plot(difdvi,col=cl)
+> 
