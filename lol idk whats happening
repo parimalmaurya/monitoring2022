@@ -1,0 +1,66 @@
+library(tidyverse) # to handle data frames
+library(raster)    # to handle raster files (maps)
+library(biomod2)   # to prepare data in BioMod format
+library(ggtext)    # to plot BioMod input data 
+library(maps)      # to get worldmap
+library(rgbif)     # to download data directly from GBIF
+install.packages("tidyterra")
+library(tidyterra) # to plot BioMod input data
+getwd()
+# 1. Occurrence data
+
+### getting data from GBIF
+
+## getting the taxon keys from GBIF
+
+tax_heaven <- rgbif::name_suggest(q="Ailanthus altissima", rank="species")
+tax_heaven$key
+
+#define the search polygon: all of Europe
+Search_polygon <- "POLYGON((
+  -10.0 36.0, 
+  45.0 36.0, 
+  45.0 60.0, 
+  32.0 60.0, 
+  32.0 70.0, 
+  24.0 70.0, 
+  24.0 57.0, 
+  30.0 55.0, 
+  30.0 50.0, 
+  30.0 45.0, 
+  30.0 42.0, 
+  -10.0 42.0, 
+  -10.0 36.0
+))"
+
+#downloading occurrence data for the search area
+occ_raw <- rgbif::occ_search(taxonKey = tax_heaven$key, 
+                             geometry = Search_polygon, 
+                             hasCoordinate = T, limit=10000)
+occ_raw
+
+
+
+occ_merged <- occ_raw$data %>%
+  +     select(acceptedScientificName, 
+               +            decimalLatitude, 
+               +            decimalLongitude, 
+               +            occurrenceStatus, 
+               +            speciesKey, 
+               +            order, 
+               +            family, 
+               +            species, 
+               +            genus, 
+               +            specificEpithet, 
+               +            coordinateUncertaintyInMeters, 
+               +            year, 
+               +            month, 
+               +            references, 
+               +            license, 
+               +            countryCode, 
+               +            collectionCode, 
+               +            basisOfRecord, 
+               +            individualCount)
+
+
+write.csv(occ_merged, "occurrence_data_Treeofheaven.csv", row.names = FALSE)
