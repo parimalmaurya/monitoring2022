@@ -11,14 +11,15 @@ setwd("C:/Users/parim/Desktop/r_projects/invasivesp_modelling")
 
 #Accessing all required packages 
 
-library(terra)
-library(tidyterra)
-library(dplyr)
-library(geodata)
-library(predicts)
-library(raster)         # allows modeling with analysis of spatial data
-library(ggplot2)        # used to create easily adjustable and visually appealing plots 
-library(maps)           # library for world map data
+library(terra)         # Provides tools for spatial data manipulation and analysis, particularly for raster and vector data
+library(tidyterra)     # Integrates 'terra' with the 'tidyverse', enabling tidy-style data manipulation for spatial data
+library(dplyr)         # data manipulation package from the 'tidyverse' for filtering, selecting, and transforming data
+library(geodata)       # Facilitates easy access and downloading of geospatial data, including climate and environmental data
+library(predicts)      # package for spatial predictive modeling, especially species distribution modeling
+library(raster)        # Allows for the analysis and modeling of spatial raster data, particularly useful for environmental data
+library(ggplot2)       # Used to create highly customizable and visually appealing plots, particularly effective for data visualization
+library(maps)          # Provides world map data, useful for visualizing geographic distributions on a global or regional scale
+
 
 
 ## loading the dataset
@@ -71,12 +72,6 @@ invasivesp_data <- invasivesp_data[invasivesp_data$basisOfRecord %in% keeping_re
 #Age of records: removing records before 2000
 table(invasivesp_data$year)
 invasivesp_data <- invasivesp_data %>% filter(year > 2000)
-
-# Indiviual count: Removing records with less than 1 observation
-# Convert the individualCount column to numeric, coercing empty strings to NA
-invasivesp_data$individualCount <- as.numeric(invasivesp_data$individualCount)
-# Filter out records with less than 1 observation
-invasivesp_data <- invasivesp_data[!is.na(invasivesp_data$individualCount) & invasivesp_data$individualCount < 99, ]
 
 # rename latitude and longitude columns
 invasivesp_data <- invasivesp_data %>% rename("LAT"=decimalLatitude, "LONG"=decimalLongitude)
